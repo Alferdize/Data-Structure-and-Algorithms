@@ -1,6 +1,5 @@
 def product(data):
     n = len(data)
-    temp = 0
     left = [1] * n
     right = [1] * n
     for i in range(1,len(left)):
