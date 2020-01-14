@@ -2,8 +2,6 @@
 Daily_problem_3.py
 Google Tree Problem
 """
-from collections import deque
-
 class Node:
     def __init__(self, val, left=None, right=None):
         self.val = val
@@ -33,11 +31,9 @@ def rebuild(tree_list):
 
     if len(tree_list) != 0:     
         value = tree_list.pop(0)
-        # not empty
-        if value != '-1':       
-            node = Node(value)
-            node.left = rebuild(tree_list)
-            node.right = rebuild(tree_list)
+        node = Node(value)
+        node.left = rebuild(tree_list)
+        node.right = rebuild(tree_list)
             
     return node
     
