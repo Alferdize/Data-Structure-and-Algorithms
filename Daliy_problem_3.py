@@ -20,38 +20,28 @@ def serialize(root):
     return data
 
 
-# def serialize(root):
-#         vals = []
-#         def encode(node):
-#             if node:
-#                 vals.append(node.val)
-#                 encode(node.left)
-#                 encode(node.right)
-#             else:
-#                 vals.append('#')
-        
-#         encode(root)
-        
-#         return ' '.join(vals)
+def deserialize(tree_string):
+
+    tree_list = tree_string.split('-')
+    tree = rebuild(tree_list)
+    return tree
 
 
-def deserialize(data):
-    
-    vals = deque(data.split('-'))
-    return queue(vals)
+def rebuild(tree_list):
 
-def queue(data):
-    val = data.popleft()
-    print(val)
-    if len(data) > 0 :
-        queue(data)
-        return val
-    return 1
+    node = Node(None)
+
+    if len(tree_list) != 0:     
+        value = tree_list.pop(0)
+        # not empty
+        if value != '-1':       
+            node = Node(value)
+            node.left = rebuild(tree_list)
+            node.right = rebuild(tree_list)
+            
+    return node
     
 
 
 node = Node('root', Node('left', Node('left.left'), Node('right.right')), Node('right'))
-data = serialize(node)
-print(data)
-# data.split("-")
 assert deserialize(serialize(node)).left.left.val == 'left.left'
