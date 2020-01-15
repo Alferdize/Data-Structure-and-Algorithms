@@ -9,6 +9,7 @@ class Node:
         self.right = right
 
 
+
 def serialize(root):
     data = root.val
     if root.left != None:
@@ -31,6 +32,7 @@ def rebuild(tree_list):
 
     if len(tree_list) != 0:     
         value = tree_list.pop(0)
+        print(value)
         node = Node(value)
         node.left = rebuild(tree_list)
         node.right = rebuild(tree_list)
