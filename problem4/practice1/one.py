@@ -5,11 +5,11 @@ def swap(a, b):
 
 
 def findmissingPostive(data, n):
+    print(data,n)
     for i in range(n):
-        print((abs(data[i])-1),data[abs(data[i])-1],n)
+        # print((abs(data[i])-1),data[abs(data[i])-1],n)
         if(abs(data[i])-1) < n and data[abs(data[i])-1] > 0:
             data[abs(data[i])-1] = - data[abs(data[i]) - 1]
-
     for i in range(n):
         if data[i] > 0:
             return i + 1
