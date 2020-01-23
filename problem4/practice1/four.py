@@ -1,5 +1,5 @@
 import random
-
+import time
 def swap(a, b):
     temp = a
     a = b
@@ -33,6 +33,8 @@ def min_missing(data):
 
 
 if __name__ == "__main__":
+    start = time.time()
     data = [i for i in range(1,1000000)]
     data.remove(random.randint(1,1000000))
     print(min_missing(data))
+    print(time.time() - start)
