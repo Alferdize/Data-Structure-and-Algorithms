@@ -22,6 +22,6 @@ def min_missing(data):
 
 
 if __name__ == "__main__":
-    data = [1, 2, 0]
-    # data.remove(random.randint(1,10000))
+    data = [i for i in range(1,1000000)]
+    data.remove(random.randint(1,1000000))
     print(min_missing(data))
