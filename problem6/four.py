@@ -1,11 +1,10 @@
 class Node:
-    def __init__(self, data):
+    def __init__(self,data):
         self.data = data
         self.both = id(data)
 
     def __repr__(self):
         return str(self.data)
-
 
 a = Node("a")
 b = Node("b")
@@ -22,13 +21,13 @@ id_map[id("e")] = e
 
 
 class LinkedList:
-    def __init__(self, node):
+    def __init__(self,node):
         self.head = node
         self.tail = node
         self.head.both = 0
         self.tail.both = 0
 
-    def add(self, element):
+    def add(self,element):
         self.tail.both ^= id(element.data)
         element.both = id(self.tail.data)
         self.tail = element
@@ -41,7 +40,6 @@ class LinkedList:
             prev_node_address = id(result_node.data)
             result_node = id_map[next_node_address]
         return result_node.data
-
 
 llist = LinkedList(c)
 llist.add(d)

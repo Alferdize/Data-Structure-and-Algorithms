@@ -13,6 +13,7 @@ c = Node("c")
 d = Node("d")
 e = Node("e")
 
+
 id_map = dict()
 id_map[id("a")] = a
 id_map[id("b")] = b
