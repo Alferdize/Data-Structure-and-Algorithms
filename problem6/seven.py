@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, data):
+    def __init__(self,data):
         self.data = data
         self.both = id(data)
 
@@ -8,7 +8,7 @@ class Node:
 
 
 a = Node("a")
-b = Node("b")
+b= Node("b")
 c = Node("c")
 d = Node("d")
 e = Node("e")
@@ -22,26 +22,25 @@ id_map[id("e")] = e
 
 
 class LinkedList:
-    def __init__(self, node):
+    def __init__(self,node):
         self.head = node
         self.tail = node
-        self.head.both = 0
         self.tail.both = 0
+        self.head.both = 0
 
-    def add(self, element):
+    def add(self,element):
         self.tail.both ^= id(element.data)
         element.both = id(self.tail.data)
         self.tail = element
 
-    def get(self, index):
-        prev_node_element = 0
+    def get(self,index):
+        prev_node_address = 0
         result_node = self.head
         for i in range(index):
-            next_node_address = prev_node_element ^ result_node.both
-            prev_node_element = id(result_node.data)
+            next_node_address = prev_node_address ^ result_node.both
+            prev_node_address = id(result_node.data)
             result_node = id_map[next_node_address]
         return result_node.data
-
 
 llist = LinkedList(c)
 llist.add(d)
