@@ -45,6 +45,13 @@ def algorithm(n, k):
         l_diagonal_sort = [(en[1],en[0]) for en in enumerate(clear) if en[1] > 0]
         l_diagonal_sort.sort(reverse=True)
         ch = True
+
+
+        # crucial code
+
+        # end
+
+        
         print(l_diagonal_sort)
 
 
