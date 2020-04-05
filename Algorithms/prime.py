@@ -11,16 +11,20 @@ def findprime(n):
         p += 1
 
     sum = 0
-    for p in range(2,n):
+    j = 26
+    for p in range(n,2,-1):
         if prime[p]:
-            print(p)
+            j-=1
+            print(p,chr(65+j))
+        if chr(65+j)=="A":
+            break
             
     return sum
 
 
 
 if __name__ == "__main__":
-    n = 20
+    n = 103
     start = time.time()
     sum = findprime(n)
     print(sum)
