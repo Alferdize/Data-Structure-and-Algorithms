@@ -4,18 +4,19 @@ def quicsort(A, low, high):
         quicsort(A, low, p - 1)
         quicsort(A, p + 1, high)
 
+
 def partition(A, low, high):
     pivot = A[high]
     i = low
-    for j in range(low,high, 1):
+    for j in range(low, high):
         if A[j] < pivot:
-            temp = A[i]
-            A[i] = A[j]
-            A[j] = temp
+            temp = A[j]
+            A[j] = A[i]
+            A[i] = temp
             i += 1
-    temp = A[i]
-    A[i] = A[high]
-    A[high] = temp
+    temp = A[high]
+    A[high] = A[i]
+    A[i] = temp
     return i
 
 
