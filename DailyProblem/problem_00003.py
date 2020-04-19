@@ -12,29 +12,27 @@ class Node:
 def serialize(root):
     if not root:
         return None
+    tree = dict()
+    tree_left = serialize(root.left)
+    tree_right = serialize(root.right)
+    tree['data'] = root.data
 
-    serialize_tree_map = dict()
-    serialize_left = serialize(root.left)
-    serialize_right = serialize(root.right)
-    serialize_tree_map['data'] = root.data
-    print(serialize_tree_map)
-    if serialize_left:
-        serialize_tree_map['left'] = serialize_left
-    if serialize_right:
-        serialize_tree_map['right'] = serialize_right
-    
+    if tree_left:
+        tree['left'] = tree_left
+    if tree_right:
+        tree['right'] = tree_right
 
-    return json.dumps(serialize_tree_map)
+    return json.dumps(tree)
 
 def deserialize(s):
-    serialize_tree_map = json.loads(s)
-    print(serialize_tree_map)
-    node = Node(serialize_tree_map['data'])
-    if 'left' in serialize_tree_map:
-        node.left = deserialize(serialize_tree_map['left'])
-    if 'right' in serialize_tree_map:
-        node.right = deserialize(serialize_tree_map['right'])
-    
+    tree = json.loads(s)
+
+    node = Node(tree['data'])
+    if 'left' in tree:
+        node.left = deserialize(tree['left'])
+    if 'right' in tree:
+        node.right = deserialize(tree['right'])
+
     return node
 
 
