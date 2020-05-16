@@ -1,7 +1,7 @@
 class Solution:
     def solve(self, s):
-        forward = {k:v for k,v in s}
-        back = {v:k for k,v in s}
+        forward = {k: v for k, v in s}
+        back = {v: k for k, v in s}
         b = s[0][1]
         while (nb:=back.get(b)):
             b = nb
