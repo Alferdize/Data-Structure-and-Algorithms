@@ -6,13 +6,14 @@
 class Solution:
     def solve(self, root):
         # Write your code here
-        mx = 0
-        def dfs(node):
-            nonlocal mx
-            if not node: return 0
-            deepest_left = dfs(node.left)
-            deepest_right = dfs(node.right)
-            mx = max(mx,deepest_left+deepest_right+1)
-            return 1 + max(deepest_left, deepest_right)
-        dfs(root)
-        return mx
+        def depth(node):
+            if not node:
+                return 0
+            left = depth(node.left)
+            right = depth(node.right)
+            self.ans = max(self.ans, left + right + 1)
+            return 1 + max(left, right)
+        
+        self.ans = 0
+        depth(root)
+        return self.ans
