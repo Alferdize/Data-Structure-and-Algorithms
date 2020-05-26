@@ -9,8 +9,8 @@ class Solution:
         for i in extval: 
             ans += str(i[1]) 
         return ans
-        
-        
+
+
 # import functools
 # class Solution:
 #     def solve(self, snippets):
