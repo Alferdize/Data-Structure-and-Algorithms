@@ -3,15 +3,14 @@ from math import gcd
 def leftRotate(arr,d):
     n = len(arr)
     d = d % n
-    g_c_d  = gcd(d, n)
-
+    g_c_d = gcd(d,n)
     for i in range(g_c_d):
-        temp = arr[i]
         j = i
+        temp = arr[i]
         while 1:
-            k = j  + d
+            k = j +d
             if k >= n:
-                k = k -n 
+                k = k -n
             if k == i:
                 break
             arr[j] = arr[k]
