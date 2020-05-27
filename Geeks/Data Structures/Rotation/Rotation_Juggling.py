@@ -18,5 +18,5 @@ def leftRotate(arr,d):
         arr[j] = temp
 
 arr = [1, 2, 3, 4, 5, 6, 7]
-leftRotate(arr,3)
+leftRotate(arr,9)
 print(arr)
